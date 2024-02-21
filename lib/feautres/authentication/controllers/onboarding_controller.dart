@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:e_commerce_app/feautres/authentication/screens/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +17,7 @@ class OnBoardingController extends GetxController {
 
   void nextPage() {
     if (currentpageIndex.value == 2) {
-      //Get.to(LoginScreen())
+      Get.offAll(LoginScreeen());
     } else {
       int pageIndex = currentpageIndex.value + 1;
       pageController.jumpToPage(pageIndex);
