@@ -1,6 +1,9 @@
+import 'package:e_commerce_app/feautres/authentication/screens/passwordverification/forgetpassword_screen.dart';
+import 'package:e_commerce_app/feautres/authentication/screens/signup/signup.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class FormSection extends StatelessWidget {
@@ -42,7 +45,10 @@ class FormSection extends StatelessWidget {
                   ],
                 ),
                 TextButton(
-                    onPressed: () {}, child: const Text(TTexts.forgetPassword))
+                    onPressed: () {
+                      Get.to(() => const ForgetPassword());
+                    },
+                    child: const Text(TTexts.forgetPassword))
               ],
             ),
             const SizedBox(
@@ -59,7 +65,10 @@ class FormSection extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                  onPressed: () {}, child: const Text(TTexts.createAccount)),
+                  onPressed: () {
+                    Get.to(() => const SignUp());
+                  },
+                  child: const Text(TTexts.createAccount)),
             ),
           ],
         ),
