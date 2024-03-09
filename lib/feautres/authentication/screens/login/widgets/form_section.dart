@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/feautres/authentication/screens/passwordverification/forgetpassword_screen.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/signup/signup.dart';
+import 'package:e_commerce_app/feautres/shop/screens/widgets/navigation_menu.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,10 @@ class FormSection extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {}, child: const Text(TTexts.signIn)),
+                  onPressed: () {
+                    Get.to(() => BottomNavigationMenu());
+                  },
+                  child: const Text(TTexts.signIn)),
             ),
             const SizedBox(
               height: TSizes.spaceBtwItems,

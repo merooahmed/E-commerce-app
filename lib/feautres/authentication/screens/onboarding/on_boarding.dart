@@ -3,16 +3,15 @@ import 'package:e_commerce_app/feautres/authentication/screens/onboarding/widget
 import 'package:e_commerce_app/feautres/authentication/screens/onboarding/widgets/onboarding_skip_button.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/onboarding/widgets/onboarding_view.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/onboarding/widgets/onboardingdots_navigation.dart';
-import 'package:e_commerce_app/utils/constants/colors.dart';
+
 import 'package:e_commerce_app/utils/constants/image_strings.dart';
-import 'package:e_commerce_app/utils/constants/sizes.dart';
+
 import 'package:e_commerce_app/utils/constants/text_strings.dart';
-import 'package:e_commerce_app/utils/device/device_utility.dart';
-import 'package:e_commerce_app/utils/helpers/helper_functions.dart';
-import 'package:e_commerce_app/utils/theme/widget_themes/text_theme.dart';
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 
 class OnBoardingPage extends StatelessWidget {
    OnBoardingPage({super.key});
