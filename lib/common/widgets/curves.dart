@@ -11,15 +11,14 @@ class TcustomCurvedEdges extends CustomClipper<Path> {
     final lastCurve = Offset(30, size.height - 20);
     path.quadraticBezierTo(
         firstCurve.dx, firstCurve.dy, lastCurve.dx, lastCurve.dy);
-final secondCurve = Offset(0, size.height - 20);
-    final secondLastCurve = Offset(size.width-30, size.height - 20);
+    final secondCurve = Offset(0, size.height - 20);
+    final secondLastCurve = Offset(size.width - 30, size.height - 20);
     path.quadraticBezierTo(
         secondCurve.dx, secondCurve.dy, secondLastCurve.dx, secondLastCurve.dy);
-        final thirdCurve = Offset(size.width, size.height - 20);
+    final thirdCurve = Offset(size.width, size.height - 20);
     final thirdlastCurve = Offset(size.width, size.height);
     path.quadraticBezierTo(
         thirdCurve.dx, thirdCurve.dy, thirdlastCurve.dx, thirdlastCurve.dy);
-
 
     path.lineTo(size.width, 0);
 

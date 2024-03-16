@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/common/styles/box_shadow.dart';
+import 'package:e_commerce_app/common/widgets/brandtitlewithverfiedicon.dart';
 import 'package:e_commerce_app/common/widgets/tcircular_container.dart';
 import 'package:e_commerce_app/common/widgets/tcirculer_icon.dart';
 import 'package:e_commerce_app/common/widgets/tproduct_price_text.dart';
@@ -80,21 +81,7 @@ class TProductCardVertical extends StatelessWidget {
                     const SizedBox(
                       height: TSizes.spaceBtwItems / 2,
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          'Nike',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: Theme.of(context).textTheme.labelMedium,
-                        ),
-                        const Icon(
-                          Iconsax.verify5,
-                          color: TColors.primary,
-                          size: TSizes.iconXs,
-                        )
-                      ],
-                    ),
+                    TBrandTittleWithVerfiedIcon(tittle: "Nike",),
                   ]),
             ),
             const Spacer(),
@@ -132,3 +119,4 @@ class TProductCardVertical extends StatelessWidget {
     );
   }
 }
+

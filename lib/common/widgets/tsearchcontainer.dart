@@ -3,28 +3,31 @@ import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/device/device_utility.dart';
 import 'package:e_commerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class TSearchContainer extends StatelessWidget {
-  const TSearchContainer(
-      {super.key,
-      required this.text,
-      this.icon,
-      this.showbackground = true,
-      this.showborder = true});
+  const TSearchContainer({
+    super.key,
+    required this.text,
+    this.icon = Iconsax.search_normal,
+    this.showbackground = true,
+    this.showborder = true,
+    this.padding = const EdgeInsets.only(
+        right: TSizes.defaultSpace,
+        left: TSizes.defaultSpace,
+        top: TSizes.defaultSpace),
+  });
   final String text;
   final IconData? icon;
   final bool showbackground, showborder;
-
+  final EdgeInsetsGeometry padding;
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: () {},
       child: Padding(
-        padding: const EdgeInsets.only(
-            right: TSizes.defaultSpace,
-            left: TSizes.defaultSpace,
-            top: TSizes.defaultSpace),
+        padding: padding,
         child: Container(
           width: TDeviceUtils.getScreenWidth(context),
           padding: const EdgeInsets.all(TSizes.md),

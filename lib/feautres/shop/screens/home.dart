@@ -15,6 +15,7 @@ import 'package:e_commerce_app/utils/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,6 +32,7 @@ class HomeScreen extends StatelessWidget {
                   THomeAppBar(),
                   TSearchContainer(
                     text: 'Search in Store',
+                    
                   ),
                   SizedBox(
                     height: TSizes.spaceBtwSections,
