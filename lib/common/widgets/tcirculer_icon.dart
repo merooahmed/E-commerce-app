@@ -1,8 +1,6 @@
 import 'package:e_commerce_app/utils/constants/colors.dart';
-import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class TCirculerIcon extends StatelessWidget {
   const TCirculerIcon({
@@ -40,7 +38,7 @@ class TCirculerIcon extends StatelessWidget {
         child: IconButton(
           onPressed: onPressed,
           icon: Icon(
-            Iconsax.heart5,
+            icon,
             color: iconColor,
             size: size,
           ),

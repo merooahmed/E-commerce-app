@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/common/styles/box_shadow.dart';
 import 'package:e_commerce_app/common/widgets/brandtitlewithverfiedicon.dart';
-import 'package:e_commerce_app/common/widgets/tcircular_container.dart';
 import 'package:e_commerce_app/common/widgets/tcirculer_icon.dart';
 import 'package:e_commerce_app/common/widgets/tproduct_price_text.dart';
 import 'package:e_commerce_app/common/widgets/tproducttittle_text.dart';
@@ -69,16 +68,16 @@ class TProductCardVertical extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: TSizes.md),
+            const Padding(
+              padding: EdgeInsets.only(left: TSizes.md),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const TProductTittleText(
+                    TProductTittleText(
                       tittle: 'Green NikE Air Shoes',
                       smallsize: true,
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: TSizes.spaceBtwItems / 2,
                     ),
                     TBrandTittleWithVerfiedIcon(tittle: "Nike",),

@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:e_commerce_app/utils/constants/colors.dart';
 import 'package:e_commerce_app/utils/constants/text_strings.dart';
