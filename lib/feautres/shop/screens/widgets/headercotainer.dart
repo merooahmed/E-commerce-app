@@ -5,9 +5,12 @@ import 'package:flutter/material.dart';
 
 class TPrimaryHeader extends StatelessWidget {
   const TPrimaryHeader({
-    super.key, required this.child,
+    super.key,
+    required this.child,
+    this.height = 450,
   });
   final Widget child;
+  final double height;
   @override
   Widget build(BuildContext context) {
     return TcurvedEdgeWidgets(
@@ -15,7 +18,7 @@ class TPrimaryHeader extends StatelessWidget {
         color: TColors.primary,
         padding: const EdgeInsets.all(0),
         child: SizedBox(
-          height: 450,
+          height: height,
           child: Stack(
             children: [
               Positioned(
@@ -30,7 +33,7 @@ class TPrimaryHeader extends StatelessWidget {
                   child: TcirculerContainer(
                     backgrondColor: TColors.textWhite.withOpacity(0.1),
                   )),
-child,
+              child,
               // Column(children: [],)
             ],
           ),

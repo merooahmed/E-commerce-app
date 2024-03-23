@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/feautres/shop/screens/home.dart';
+import 'package:e_commerce_app/feautres/shop/screens/setting.dart';
 import 'package:e_commerce_app/feautres/shop/screens/store.dart';
 import 'package:e_commerce_app/feautres/shop/screens/wishlist.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,6 @@ class BottomNavigationController extends GetxController {
     const HomeScreen(),
    const StoreScreen(),
    const WishListScreen(),
-    Container(
-      color: Colors.yellow,
-    )
+   const SettingScreen(),
   ];
 }
