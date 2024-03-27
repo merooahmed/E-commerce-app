@@ -5,11 +5,13 @@ import 'package:e_commerce_app/common/widgets/tproduct_price_text.dart';
 import 'package:e_commerce_app/common/widgets/tproducttittle_text.dart';
 import 'package:e_commerce_app/common/widgets/trounded_container.dart';
 import 'package:e_commerce_app/common/widgets/troundedimage.dart';
+import 'package:e_commerce_app/feautres/shop/screens/product_deatails/product_detail.dart';
 import 'package:e_commerce_app/utils/constants/colors.dart';
 import 'package:e_commerce_app/utils/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TProductCardVertical extends StatelessWidget {
@@ -19,7 +21,9 @@ class TProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Get.to(() => const ProductDetail());
+      },
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -80,7 +84,9 @@ class TProductCardVertical extends StatelessWidget {
                     SizedBox(
                       height: TSizes.spaceBtwItems / 2,
                     ),
-                    TBrandTittleWithVerfiedIcon(tittle: "Nike",),
+                    TBrandTittleWithVerfiedIcon(
+                      tittle: "Nike",
+                    ),
                   ]),
             ),
             const Spacer(),
@@ -118,4 +124,3 @@ class TProductCardVertical extends StatelessWidget {
     );
   }
 }
-

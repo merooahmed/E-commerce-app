@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       darkTheme: TAppTheme.darkTheme,
       theme: TAppTheme.lightTheme,
-      home: OnBoardingPage(),
+      home: BottomNavigationMenu(),
     );
   }
 }

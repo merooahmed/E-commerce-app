@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class DividerSection extends StatelessWidget {
   const DividerSection({
-    super.key, required this.textDivider,
+    super.key,
+    required this.textDivider,
   });
   final String textDivider;
   @override
@@ -24,7 +25,6 @@ class DividerSection extends StatelessWidget {
         Flexible(
             child: Divider(
           color: dark ? TColors.darkGrey : TColors.grey,
-
           indent: 5,
           endIndent: 60,
           thickness: 0.5,

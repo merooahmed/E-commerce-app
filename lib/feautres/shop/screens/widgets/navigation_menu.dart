@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class BottomNavigationMenu extends StatelessWidget {
-  BottomNavigationMenu({super.key});
-  final BottomNavigationController controller =
+   BottomNavigationMenu({super.key});
+ final  BottomNavigationController controller =
       Get.put(BottomNavigationController());
   @override
   Widget build(BuildContext context) {
