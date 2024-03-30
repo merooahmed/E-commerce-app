@@ -2,11 +2,9 @@ import 'package:e_commerce_app/common/widgets/circular_image.dart';
 import 'package:e_commerce_app/common/widgets/customappbar.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/profile/widgets/tprofilemenu.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/tsectionheader.dart';
-import 'package:e_commerce_app/utils/constants/colors.dart';
 import 'package:e_commerce_app/utils/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:iconsax/iconsax.dart';
 
 class UserProfileInfo extends StatelessWidget {

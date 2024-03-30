@@ -1,18 +1,15 @@
-import 'package:e_commerce_app/common/widgets/customappbar.dart';
-import 'package:e_commerce_app/common/widgets/tcirculer_icon.dart';
-import 'package:e_commerce_app/common/widgets/troundedimage.dart';
+import 'package:e_commerce_app/feautres/shop/screens/product_deatails/product_rating_reviews/productsratingandreviews_screen.dart';
 import 'package:e_commerce_app/feautres/shop/screens/product_deatails/widgets/tbottom_addtocart.dart';
 import 'package:e_commerce_app/feautres/shop/screens/product_deatails/widgets/tproduct_attributes.dart';
 import 'package:e_commerce_app/feautres/shop/screens/product_deatails/widgets/tproductimagesider.dart';
 import 'package:e_commerce_app/feautres/shop/screens/product_deatails/widgets/tproductmetadata.dart';
 import 'package:e_commerce_app/feautres/shop/screens/product_deatails/widgets/tratingandshare.dart';
-import 'package:e_commerce_app/feautres/shop/screens/widgets/tcurvededge_widgets.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/tsectionheader.dart';
 import 'package:e_commerce_app/utils/constants/colors.dart';
-import 'package:e_commerce_app/utils/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
@@ -78,12 +75,17 @@ class ProductDetail extends StatelessWidget {
                       title: 'Reviews (199)',
                       showactionbutton: false,
                     ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Iconsax.arrow_right3,
-                          size: 18,
-                        ))
+                    SizedBox(
+                      child: IconButton(
+                          onPressed: () {
+                            Get.to(() => const ProductReviewsandRating());
+                          },
+                          icon: const Icon(
+                            Iconsax.arrow_right_3,
+                            size: 20,
+                            color: TColors.black,
+                          )),
+                    )
                   ],
                 ),
                 const SizedBox(

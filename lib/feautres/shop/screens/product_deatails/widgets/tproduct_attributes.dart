@@ -73,6 +73,9 @@ class TProductAttributes extends StatelessWidget {
                 maxlines: 4,
                 smallsize: true,
               ),
+              const SizedBox(
+                height: TSizes.spaceBtwItems,
+              ),
             ],
           ),
         ),
