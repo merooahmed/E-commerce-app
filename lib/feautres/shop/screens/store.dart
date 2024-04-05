@@ -5,11 +5,13 @@ import 'package:e_commerce_app/common/widgets/tbrand_card.dart';
 import 'package:e_commerce_app/common/widgets/tcartcounter_icon.dart';
 import 'package:e_commerce_app/common/widgets/tcategory_tab.dart';
 import 'package:e_commerce_app/common/widgets/tsearchcontainer.dart';
+import 'package:e_commerce_app/feautres/shop/screens/brands/all_brands_screen.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/tsectionheader.dart';
 import 'package:e_commerce_app/utils/constants/colors.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -61,7 +63,9 @@ class StoreScreen extends StatelessWidget {
                         ),
                         TSectionHeader(
                           title: 'Feautered Brands',
-                          onpressed: () {},
+                          onpressed: () {
+                            Get.to(() => const BrandsScreen());
+                          },
                         ),
                         const SizedBox(
                           height: TSizes.spaceBtwItems / 1.5,

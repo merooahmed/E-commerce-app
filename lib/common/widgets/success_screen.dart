@@ -23,8 +23,8 @@ class SuccessScreen extends StatelessWidget {
           padding: TSpacingStyls.paddingWthAppBarHeight * 3,
           child: Column(children: [
             Image(
-              image: const AssetImage(
-                TImages.deliveredEmailIllustration,
+              image:  AssetImage(
+                image
               ),
               width: TDeviceUtils.getScreenWidth(context) * 0.6,
             ),

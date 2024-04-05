@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/common/widgets/customappbar.dart';
 import 'package:e_commerce_app/feautres/shop/screens/address/useraddress_screen.dart';
+import 'package:e_commerce_app/feautres/shop/screens/orders/myorders_screen.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/headercotainer.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/profile/screens/user_profile_screen.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/profile/widgets/tsettingmenu_tile.dart';
@@ -76,7 +77,9 @@ class SettingScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subtitle: 'In progress and completed orders',
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => const MyOrders());
+                    },
                   ),
                   TsettingMenuTile(
                     icon: Iconsax.bank,

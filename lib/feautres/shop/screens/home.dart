@@ -3,6 +3,7 @@ import 'package:e_commerce_app/common/tproductcard_vertical.dart';
 import 'package:e_commerce_app/common/widgets/grid_ayout.dart';
 
 import 'package:e_commerce_app/common/widgets/tsearchcontainer.dart';
+import 'package:e_commerce_app/feautres/shop/screens/product_deatails/allporoducts/all_products_screen.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/headercotainer.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/home_categories.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/homeappbar.dart';
@@ -15,6 +16,7 @@ import 'package:e_commerce_app/utils/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,7 +33,6 @@ class HomeScreen extends StatelessWidget {
                   THomeAppBar(),
                   TSearchContainer(
                     text: 'Search in Store',
-                    
                   ),
                   SizedBox(
                     height: TSizes.spaceBtwSections,
@@ -67,7 +68,10 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
-                  const TSectionHeader(title: 'Popular Product'),
+                  TSectionHeader(
+                    title: 'Popular Product',
+                    onpressed: () => Get.to(() => const AllProduct()),
+                  ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
