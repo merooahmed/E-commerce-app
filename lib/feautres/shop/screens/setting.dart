@@ -38,7 +38,7 @@ class SettingScreen extends StatelessWidget {
                       ),
                     ),
                     TUserProfileWidgets(
-                      onPressed: () => Get.to(() => const UserProfileInfo()),
+                      onPressed: () => Get.to(() =>  UserProfileInfo()),
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwSections,

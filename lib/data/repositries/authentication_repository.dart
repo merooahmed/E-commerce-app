@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/data/repositries/user/user_repository.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/login/login.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/onboarding/on_boarding.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/signup/confirmemail_verification.dart';
@@ -18,7 +19,7 @@ class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
   final devicestorage = GetStorage();
   final _auth = FirebaseAuth.instance;
-  User? get authUser=>_auth.currentUser;
+  User? get authUser => _auth.currentUser;
   @override
   void onReady() {
     FlutterNativeSplash.remove();
@@ -165,6 +166,43 @@ class AuthenticationRepository extends GetxController {
       throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong!,plese try again';
+    }
+  }
+
+  Future<void> reauthenticateWithEmailandPassword(
+      String email, String password) async {
+    try {
+      AuthCredential credential =
+          EmailAuthProvider.credential(email: email, password: password);
+
+      await _auth.currentUser!.reauthenticateWithCredential(credential);
+          
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong!,plese try again';
+    }
+  }
+   Future<void>deleteAccount()async{
+    try{
+     await UserRepository.instance.removeUser(_auth.currentUser!.uid);
+     await _auth.currentUser!.delete();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
     } on FormatException catch (_) {
       throw const TFormatException();
     } on PlatformException catch (e) {

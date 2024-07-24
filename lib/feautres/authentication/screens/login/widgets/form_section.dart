@@ -71,7 +71,7 @@ class FormSection extends StatelessWidget {
                 ),
                 TextButton(
                     onPressed: () {
-                      Get.to(() =>  ForgetPassword());
+                      Get.to(() => ForgetPassword());
                     },
                     child: const Text(TTexts.forgetPassword))
               ],

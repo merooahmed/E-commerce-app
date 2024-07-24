@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/common/widgets/customappbar.dart';
 import 'package:e_commerce_app/common/widgets/tcartcounter_icon.dart';
+import 'package:e_commerce_app/common/widgets/tshimmer_widget.dart';
 import 'package:e_commerce_app/feautres/personalization/controllers/user_controller.dart';
 import 'package:e_commerce_app/feautres/shop/screens/productcart/cart.dart';
 import 'package:e_commerce_app/utils/constants/colors.dart';
@@ -8,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class THomeAppBar extends StatelessWidget {
-   THomeAppBar({
+  THomeAppBar({
     super.key,
   });
   final userController = Get.put(UserController());
@@ -22,10 +23,16 @@ class THomeAppBar extends StatelessWidget {
               style: Theme.of(context).textTheme.labelMedium!.apply(
                     color: TColors.grey,
                   )),
-          Text(userController.user.value.fullName,
-              style: Theme.of(context).textTheme.headlineSmall!.apply(
-                    color: TColors.white,
-                  ))
+          Obx(() {
+            if (userController.profileLoading.value) {
+              return const TshimmerEffect(height: 15, width: 80);
+            } else {
+             return Text(userController.user.value.fullName,
+                  style: Theme.of(context).textTheme.headlineSmall!.apply(
+                        color: TColors.white,
+                      ));
+            }
+          })
         ],
       ),
       actions: [

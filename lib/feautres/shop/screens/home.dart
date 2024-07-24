@@ -27,17 +27,17 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const TPrimaryHeader(
+            TPrimaryHeader(
               child: Column(
                 children: [
                   THomeAppBar(),
-                  TSearchContainer(
+                  const TSearchContainer(
                     text: 'Search in Store',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(
                       children: [

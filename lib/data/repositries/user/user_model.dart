@@ -3,10 +3,10 @@ import 'package:e_commerce_app/utils/formatters/formatter.dart';
 
 class UserModel {
   final String id;
-  final String firstName;
+   String firstName;
   final String email;
-  final String lastName;
-  final String profilePicture;
+   String lastName;
+ String profilePicture;
   final String phoneNumber;
   final String userName;
   UserModel(
