@@ -19,7 +19,7 @@ class TUserReviewCard extends StatelessWidget {
       children: [
         ListTile(
           leading: const CircleAvatar(
-            backgroundImage: AssetImage(TImages.userProfileImage1),
+            backgroundImage: AssetImage(TImages.userProfileImage2),
           ),
           title: Text(
             'John Doe',

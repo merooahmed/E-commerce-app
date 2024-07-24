@@ -1,25 +1,31 @@
+import 'package:e_commerce_app/feautres/authentication/controllers/signin/signin_controller.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/passwordverification/forgetpassword_screen.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/signup/signup.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/navigation_menu.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/constants/text_strings.dart';
+import 'package:e_commerce_app/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class FormSection extends StatelessWidget {
-  const FormSection({
+  FormSection({
     super.key,
   });
-
+  final controller = Get.put(SignInController());
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: controller.signInFormKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: TSizes.spaceBtwSections),
         child: Column(
           children: [
             TextFormField(
+              controller: controller.email,
+              validator: (value) =>
+                  TValidator.validateEmptyText(value, 'email'),
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.direct_right),
                   labelText: TTexts.email),
@@ -27,11 +33,22 @@ class FormSection extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwInputFields,
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                  suffixIcon: Icon(Iconsax.eye_slash),
-                  prefix: Icon(Iconsax.password_check),
-                  labelText: TTexts.password),
+            Obx(
+              () => TextFormField(
+                validator: (value) => TValidator.validatePassword(value),
+                obscureText: controller.passwordHidden.value,
+                controller: controller.password,
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Iconsax.password_check),
+                  labelText: TTexts.password,
+                  suffixIcon: IconButton(
+                      icon: controller.passwordHidden.value
+                          ? const Icon(Iconsax.eye_slash)
+                          : const Icon(Iconsax.eye),
+                      onPressed: () => controller.passwordHidden.value =
+                          !controller.passwordHidden.value),
+                ),
+              ),
             ),
             const SizedBox(
               height: TSizes.spaceBtwInputFields / 2,
@@ -41,13 +58,20 @@ class FormSection extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Checkbox(value: true, onChanged: (Value) {}),
+                    Obx(
+                      () => Checkbox(
+                          value: controller.rememberMe.value,
+                          onChanged: (Value) {
+                            controller.rememberMe.value =
+                                !controller.rememberMe.value;
+                          }),
+                    ),
                     const Text(TTexts.rememberMe),
                   ],
                 ),
                 TextButton(
                     onPressed: () {
-                      Get.to(() => const ForgetPassword());
+                      Get.to(() =>  ForgetPassword());
                     },
                     child: const Text(TTexts.forgetPassword))
               ],
@@ -59,7 +83,7 @@ class FormSection extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                   onPressed: () {
-                    Get.to(() => BottomNavigationMenu());
+                    controller.signIn();
                   },
                   child: const Text(TTexts.signIn)),
             ),

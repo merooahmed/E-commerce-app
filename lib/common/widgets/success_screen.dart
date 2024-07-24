@@ -4,6 +4,7 @@ import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/constants/text_strings.dart';
 import 'package:e_commerce_app/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen(
@@ -22,12 +23,9 @@ class SuccessScreen extends StatelessWidget {
         child: Padding(
           padding: TSpacingStyls.paddingWthAppBarHeight * 3,
           child: Column(children: [
-            Image(
-              image:  AssetImage(
-                image
-              ),
-              width: TDeviceUtils.getScreenWidth(context) * 0.6,
-            ),
+Lottie.asset( image,width: MediaQuery.of(context).size.width * 0.6,),
+             
+           
             const SizedBox(
               height: TSizes.spaceBtwSections / 2,
             ),

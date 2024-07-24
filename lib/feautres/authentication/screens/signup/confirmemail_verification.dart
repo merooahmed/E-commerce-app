@@ -1,4 +1,6 @@
 import 'package:e_commerce_app/common/widgets/success_screen.dart';
+import 'package:e_commerce_app/data/repositries/authentication_repository.dart';
+import 'package:e_commerce_app/feautres/authentication/controllers/signup/verfiy_email_controller.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/login/login.dart';
 import 'package:e_commerce_app/utils/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
@@ -9,16 +11,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class EmailVerficationScreen extends StatelessWidget {
-  const EmailVerficationScreen({super.key});
-
+ const EmailVerficationScreen({super.key, this.email});
+  final String? email;
+  
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerfiyEmailController());
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(const LoginScreeen()),
+              onPressed: () =>AuthenticationRepository.instance.logOut(),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),
@@ -45,7 +49,7 @@ class EmailVerficationScreen extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
               Text(
-                'support@codingwitht.com',
+                email ?? '',
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),
@@ -64,15 +68,9 @@ class EmailVerficationScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                     onPressed: () {
-                       Get.offAll(() => SuccessScreen(
-                            headline: TTexts.yourAccountCreatedTitle,
-                            titleBody: TTexts.yourAccountCreatedSubTitle,
-                            image: TImages.staticSuccessIllustration,
-                            onpressed: () {
-                              Get.to(const LoginScreeen());
-                            },
-                          ));
-                    }, child: const Text(TTexts.tContinue)),
+                      controller.checkEmailVerficationStatus();
+                    },
+                    child: const Text(TTexts.tContinue)),
               ),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
@@ -81,7 +79,7 @@ class EmailVerficationScreen extends StatelessWidget {
                 width: double.infinity,
                 child: TextButton(
                     onPressed: () {
-                     
+                      controller.sendEmailVerification();
                     },
                     child: const Text(TTexts.resendEmail)),
               ),

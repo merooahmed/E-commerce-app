@@ -12,6 +12,6 @@ class BottomNavigationController extends GetxController {
     const HomeScreen(),
     const StoreScreen(),
     const WishListScreen(),
-    const SettingScreen(),
+     SettingScreen(),
   ];
 }

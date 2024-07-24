@@ -1,4 +1,6 @@
 import 'package:e_commerce_app/common/widgets/customappbar.dart';
+import 'package:e_commerce_app/data/repositries/authentication_repository.dart';
+import 'package:e_commerce_app/feautres/authentication/screens/login/login.dart';
 import 'package:e_commerce_app/feautres/shop/screens/address/useraddress_screen.dart';
 import 'package:e_commerce_app/feautres/shop/screens/orders/myorders_screen.dart';
 import 'package:e_commerce_app/feautres/shop/screens/widgets/headercotainer.dart';
@@ -13,7 +15,8 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SettingScreen extends StatelessWidget {
-  const SettingScreen({super.key});
+  SettingScreen({super.key});
+  final authRepo = Get.put(AuthenticationRepository());
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +144,9 @@ class SettingScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        authRepo.logOut();
+                      },
                       child: const Text('LogOut'),
                     ),
                   ),

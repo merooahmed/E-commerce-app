@@ -3,6 +3,7 @@
 import 'package:e_commerce_app/feautres/authentication/screens/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class OnBoardingController extends GetxController {
   static OnBoardingController get instance => Get.find();
@@ -17,7 +18,9 @@ class OnBoardingController extends GetxController {
 
   void nextPage() {
     if (currentpageIndex.value == 2) {
-      Get.offAll(const LoginScreeen());
+      final storage = GetStorage();
+      storage.write('isFirstTime', false);
+      Get.offAll(() => const LoginScreeen());
     } else {
       int pageIndex = currentpageIndex.value + 1;
       pageController.jumpToPage(pageIndex);

@@ -26,15 +26,8 @@ class SignUp extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwSections,
             ),
-            const SingUPForm(),
-            const SizedBox(
-              width: TSizes.spaceBtwSections,
-            ),
-            const TermsAndPrivacyCheckSection(),
-            const SizedBox(
-              height: TSizes.spaceBtwSections,
-            ),
-            const SignUPButton(),
+             SingUPForm(),
+          
             const SizedBox(
               height: TSizes.spaceBtwSections,
             ),
@@ -42,7 +35,7 @@ class SignUp extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwSections,
             ),
-            const SocialMediaSection(),
+           SocialMediaSection(),
           ],
         ),
       ),

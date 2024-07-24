@@ -1,13 +1,15 @@
+import 'package:e_commerce_app/feautres/authentication/controllers/forgetpassword/forget_password_controller.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/passwordverification/reset_password.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/constants/text_strings.dart';
+import 'package:e_commerce_app/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ForgetPassword extends StatelessWidget {
-  const ForgetPassword({super.key});
-
+  ForgetPassword({super.key});
+  final forgetPasswordController = Get.put(ForgetPasswordController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +33,15 @@ class ForgetPassword extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwSections,
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Iconsax.direct_right),
-                  labelText: TTexts.email),
+            Form(
+              key: forgetPasswordController.forgetPasswordformKey,
+              child: TextFormField(
+                controller: forgetPasswordController.emailConrtoller,
+                validator: TValidator.validateEmail,
+                decoration: const InputDecoration(
+                    prefixIcon: Icon(Iconsax.direct_right),
+                    labelText: TTexts.email),
+              ),
             ),
             const SizedBox(
               height: TSizes.spaceBtwSections,
@@ -43,7 +50,7 @@ class ForgetPassword extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                   onPressed: () {
-                    Get.off(() => const ResetPassword());
+                    forgetPasswordController.sendPasswordResetEmail();
                   },
                   child: const Text(TTexts.submit)),
             )

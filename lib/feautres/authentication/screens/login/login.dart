@@ -24,7 +24,7 @@ class LoginScreeen extends StatelessWidget {
           
             children: [
              const  HeaderSection(),
-               const   FormSection(),
+                 FormSection(),
 
               const SizedBox(
                 height: TSizes.spaceBtwSections,
@@ -33,7 +33,7 @@ class LoginScreeen extends StatelessWidget {
                const SizedBox(
                 height: TSizes.spaceBtwSections,
               ),
-             const  SocialMediaSection(),
+               SocialMediaSection(),
              
 
 

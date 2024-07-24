@@ -1,4 +1,6 @@
+import 'package:e_commerce_app/feautres/authentication/controllers/forgetpassword/forget_password_controller.dart';
 import 'package:e_commerce_app/feautres/authentication/screens/login/login.dart';
+import 'package:e_commerce_app/feautres/authentication/screens/passwordverification/forgetpassword_screen.dart';
 import 'package:e_commerce_app/utils/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:e_commerce_app/utils/constants/text_strings.dart';
@@ -8,14 +10,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
-
+  const ResetPassword({super.key, required this.email});
+  final String email;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        actions: [IconButton(onPressed: ()=>Get.back(), icon: const Icon(CupertinoIcons.clear))]),
+      appBar: AppBar(automaticallyImplyLeading: false, actions: [
+        IconButton(
+            onPressed: () => Get.back(), icon: const Icon(CupertinoIcons.clear))
+      ]),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -30,7 +33,15 @@ class ResetPassword extends StatelessWidget {
               height: TSizes.spaceBtwSections / 2,
             ),
             Text(
-           TTexts.changeYourPasswordTitle ,
+              email,
+              style: Theme.of(context).textTheme.bodyMedium,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: TSizes.spaceBtwItems,
+            ),
+            Text(
+              TTexts.changeYourPasswordTitle,
               style: Theme.of(context).textTheme.headlineMedium,
               textAlign: TextAlign.center,
             ),
@@ -48,21 +59,21 @@ class ResetPassword extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: (){
-                    Get.offAll(()=>const LoginScreeen());
-                  }, child: const Text(TTexts.done)),
+                  onPressed: () {
+                    Get.offAll(() => const LoginScreeen());
+                  },
+                  child: const Text(TTexts.done)),
             ),
             SizedBox(
               width: double.infinity,
               child: TextButton(
-                  onPressed: (){
-                    Get.offAll(()=>const LoginScreeen());
-                  }, child: const Text(TTexts.resendEmail)),
+                  onPressed: () {
+                    ForgetPasswordController.instance
+                        .resendPasswordResetEmail(email);
+                  },
+                  child: const Text(TTexts.resendEmail)),
             ),
-          ]
-
-
-          ),
+          ]),
         ),
       ),
     );
